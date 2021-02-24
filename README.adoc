@@ -1,0 +1,29 @@
+= UnitsML XML Schemas site: schema.unitsml.org
+
+image:https://github.com/unitsml/schema.unitsml.org/workflows/build/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=build"]
+
+image:https://github.com/unitsml/schema.unitsml.org/workflows/deploy-master/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=deploy-master"]
+
+image:https://github.com/unitsml/schema.unitsml.org/workflows/deploy-staging/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=deploy-staging"]
+
+== Introduction
+
+The UnitsML XML Schemas site is used to publish XML schemas
+published by UnitsML standards.
+
+This repository is used to build and deploy the
+https://schema.unitsml.org site.
+
+This repository is jointly managed by UnitsML and Ribose.
+
+
+== Building the site
+
+[source,sh]
+----
+# removes site artifacts
+make clean
+
+# makes _site
+make all
+----

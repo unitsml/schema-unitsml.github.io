@@ -1,0 +1,58 @@
+title: UnitsML XML schemas
+title_html: UnitsML&nbsp;XML&nbsp;schemas
+
+committee:
+  id: UnitsML
+  name: UnitsML
+  home: https://www.unitsml.org
+
+footer_nav:
+  - url: https://www.unitsml.org
+    title: Main Site
+
+font_awesome_kit_url: https://kit.fontawesome.com/77a8a07e0a.js
+
+resource_listings:
+  schemas:
+    index_url: 'schemas'
+    index_title: "Schemas"
+    resource_root: 'schemas'
+    resource_label: "schema"
+
+description: >-
+  The UnitsML XML schema repository.
+
+tagline: >-
+  UnitsML XML schemas for semantic units
+
+author: "UnitsML"
+email: pending@unitsml.org
+
+theme: jekyll-theme-isotc211
+
+social:
+  links:
+    - url: https://github.com/unitsml
+
+powered_by:
+  url: https://open.ribose.com
+  title: Ribose
+  logo_path: /assets/logo-ribose.svg
+
+markdown: kramdown
+
+source: build_source
+include:
+  - build_source
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - deploy.sh
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/

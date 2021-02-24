@@ -1,0 +1,68 @@
+---
+layout: home
+permalink: /
+
+extra_scripts:
+  - src: /assets/js/locator.js
+---
+:page-liquid:
+
+
+[.section]
+== link:/schemas[Browse all schemas]
+
+[.section.locator]
+== Locate a specific schema
+
+The URL of each part of each standard has the following format:
+
+[source]
+--
+https://schema.unitsml.org/SchemaName/Version/
+--
+
+For example:
+
+* link:unitsml/v1.0/[]
+* link:unitsml-lite/v0.9/[]
+
+
+[.section]
+== Maintenance
+
+Comments, suggestions, change requests and revisions
+are managed in the https://github.com/unitsml/schema[GitHub repository]
+for the UnitsML group.
+
+For more information, please visit
+https://www.unitsml.org[UnitsML].
+
+This site is managed by the UnitsML group.
+
+////
+++++
+<template id="schemaLocator">
+  <form>
+    <div class="input">
+      <label for="schemaStandardNumber">Standard number</label>
+      <input id="schemaStandardNumber" type="text" placeholder="For example, 19115" name="standardNumber">
+    </div>
+    <div class="input">
+      <label for="schemaPartNumber">Part number</label>
+      <input id="schemaPartNumber" type="text" placeholder="3" name="partNumber">
+    </div>
+    <div class="input">
+      <label for="schemaNsPrefix">Namespace prefix</label>
+      <input id="schemaNsPrefix" type="text" placeholder="cit" name="nsPrefix">
+    </div>
+    <div class="input">
+      <label for="schemaVersion">Version</label>
+      <input id="schemaVersion" type="text" placeholder="1.0" name="version">
+    </div>
+    <div class="actions">
+      <button type="button" name="locate">Locate schema</button>
+    </div>
+  </form>
+</template>
+++++
+////
