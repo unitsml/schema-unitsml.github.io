@@ -18,13 +18,15 @@ The URL of each part of each standard has the following format:
 
 [source]
 --
-https://schema.unitsml.org/SchemaName/Version/
+https://schema.unitsml.org/SchemaName/SchemaWithVersion.xsd
 --
 
 For example:
 
-* link:unitsml/v1.0/[]
-* link:unitsml-lite/v0.9/[]
+* link:unitsml/[]
+* link:unitsmllite/[]
+
+The latest schema is documented https://schema.unitsml.org/schemas/doc/unitsml/unitsml-v1.0-csd04[here].
 
 
 [.section]
