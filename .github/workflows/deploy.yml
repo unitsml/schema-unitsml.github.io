@@ -10,7 +10,9 @@ jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: https://schema.unitsml.org
     steps:
       - name: Setup prerequisites
         run: |
