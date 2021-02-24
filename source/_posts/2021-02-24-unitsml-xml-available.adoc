@@ -2,7 +2,7 @@
 layout: post
 title:  UnitsML XML schemas now available!
 date:   2021-02-24 00:00:00 +0800
-categories: site update
+categories: posts
 ---
 The UnitsML XML schemas site have been migrated from its https://unitsml.nist.gov[NIST UnitsML home (now defunct)] to https://schema.unitsml.org.
 
