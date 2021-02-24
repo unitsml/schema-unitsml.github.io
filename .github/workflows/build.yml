@@ -29,6 +29,9 @@ jobs:
       - uses: actions/checkout@master
         with:
           submodules: true
+      - name: Update submodules
+        run: |
+          make update-init update-modules
       - name: Update gems
         run: |
           gem install bundler -v "~> 2"
