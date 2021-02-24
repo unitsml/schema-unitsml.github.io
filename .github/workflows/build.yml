@@ -27,9 +27,9 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6'
-          architecture: 'x64'
       - uses: actions/checkout@master
-        submodules: true
+        with:
+          submodules: true
       - name: Update gems
         run: |
           gem install bundler -v "~> 2"
