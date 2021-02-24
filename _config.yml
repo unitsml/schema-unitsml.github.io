@@ -54,10 +54,18 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Makefile
-  - deploy.sh
   - node_modules
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
   - .sass-cache/
+
+org:
+  name: UnitsML
+  website:
+    url: https://www.unitsml.org/
+    title: www.unitsml.org
+  email: info@unitsml.org
+  address: |-
+    info@unitsml.org
