@@ -17,11 +17,14 @@ jobs:
       - name: Setup prerequisites
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl make libxml2-dev libxslt-dev nodejs-dev node-gyp libssl1.0-dev npm openssl xsltproc
+          sudo apt-get install -y curl make libxml2-dev libxslt-dev libnode-dev node-gyp npm openssl xsltproc
       - name: Setup snaps
         run: |
           sudo snap install aws-cli --classic
-          sudo snap install node --classic --channel=10/stable
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
       - name: Use Ruby
         uses: actions/setup-ruby@v1
         with:
