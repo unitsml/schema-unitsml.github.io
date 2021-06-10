@@ -26,7 +26,7 @@ For example:
 * link:unitsml/[]
 * link:unitsmllite/[]
 
-The latest schema is documented https://schema.unitsml.org/schemas/doc/unitsml/unitsml-v1.0-csd04[here].
+The UnitsML 1.0 schema is documented link:docs/unitsml/unitsml-v1.0[here].
 
 
 [.section]

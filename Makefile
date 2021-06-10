@@ -5,13 +5,15 @@ all: _site
 clean:
 	rm -rf _site build_source
 
-doc/unitsml/unitsml-v1.0-csd04/index.html:
+distclean: clean
+	$(MAKE) -C schemas distclean
+
+docs/unitsml/unitsml-v1.0/index.html:
 	$(MAKE) -C schemas
 
-build_source: doc/unitsml/unitsml-v1.0-csd04/index.html
+build_source: docs/unitsml/unitsml-v1.0/index.html
 	mkdir -p $@; \
 	cp -a source/* build_source; \
-	rm -rf schemas/xsl schemas/xsdvi; \
 	cp -a schemas/* build_source;
 
 _site: build_source
@@ -20,12 +22,11 @@ _site: build_source
 serve: _site
 	bundle exec jekyll serve --trace
 
-
 update-init:
 	git submodule update --init
 
 update-modules:
-	git submodule foreach git checkout master; \
-	git submodule foreach git pull origin master
+	git submodule foreach git checkout main; \
+	git submodule foreach git pull origin main
 
-.PHONY: all clean serve update-init update-modules
+.PHONY: all clean distclean serve update-init update-modules
