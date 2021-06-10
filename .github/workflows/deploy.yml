@@ -26,19 +26,16 @@ jobs:
         with:
           node-version: '14.x'
       - name: Use Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6'
+          ruby-version: '2.7'
+          bundler-cache: true
       - uses: actions/checkout@master
         with:
           submodules: true
       - name: Update submodules
         run: |
           make update-init update-modules
-      - name: Update gems
-        run: |
-          gem install bundler -v "~> 2"
-          bundle install --jobs 4 --retry 3
       - name: Setup npm
         run: |
           npm install
