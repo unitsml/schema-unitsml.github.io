@@ -2,9 +2,9 @@ name: deploy
 
 on:
   push:
-    branches: master
+    branches: main
   repository_dispatch:
-    types: [ deploy_master ]
+    types: [ deploy_main ]
 
 jobs:
   build:

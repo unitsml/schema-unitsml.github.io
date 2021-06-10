@@ -2,9 +2,7 @@
 
 image:https://github.com/unitsml/schema.unitsml.org/workflows/build/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=build"]
 
-image:https://github.com/unitsml/schema.unitsml.org/workflows/deploy-master/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=deploy-master"]
-
-image:https://github.com/unitsml/schema.unitsml.org/workflows/deploy-staging/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=deploy-staging"]
+image:https://github.com/unitsml/schema.unitsml.org/workflows/deploy/badge.svg["Build Status", link="https://github.com/unitsml/schema.unitsml.org/actions?workflow=deploy"]
 
 == Introduction
 
