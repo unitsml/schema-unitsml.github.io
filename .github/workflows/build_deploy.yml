@@ -51,7 +51,13 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build site
-        run: make all
+        run: |
+          echo "=== Checking schemas-external ==="
+          ls -la schemas-external/ || echo "NOT FOUND"
+          echo "=== Checking config ==="
+          cat configs/unitsml-v1.0.yml | grep -A2 schema_location
+          echo "=== Building ==="
+          make all
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
