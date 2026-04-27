@@ -52,10 +52,21 @@ jobs:
 
       - name: Build site
         run: |
-          echo "=== Checking schemas-external ==="
-          ls -la schemas-external/ || echo "NOT FOUND"
-          echo "=== Checking config ==="
-          cat configs/unitsml-v1.0.yml | grep -A2 schema_location
+          echo "=== Debug: test v1.0 parse ==="
+          ruby -e '
+            require "lutaml/xsd"
+            repo = Lutaml::Xsd::SchemaRepository.from_yaml_file("configs/unitsml-v1.0.yml")
+            puts "Files: #{repo.files}"
+            mappings = repo.schema_location_mappings || []
+            puts "Mappings count: #{mappings.size}"
+            mappings.each { |m| puts "  #{m.from} => #{m.to}" }
+            repo.parse
+            schemas = repo.instance_variable_get(:@parsed_schemas)
+            puts "Parsed schemas count: #{schemas.size}"
+            schemas.each do |path, schema|
+              puts "  #{File.basename(path)}: #{schema.element.size} elements, #{schema.complex_type.size} complex types, #{schema.simple_type.size} simple types"
+            end
+          '
           echo "=== Building ==="
           make all
 
