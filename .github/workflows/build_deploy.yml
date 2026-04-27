@@ -53,7 +53,7 @@ jobs:
       - name: Build site
         run: |
           echo "=== Debug: test v1.0 parse ==="
-          ruby -e '
+          bundle exec ruby -e '
             require "lutaml/xsd"
             repo = Lutaml::Xsd::SchemaRepository.from_yaml_file("configs/unitsml-v1.0.yml")
             puts "Files: #{repo.files}"
