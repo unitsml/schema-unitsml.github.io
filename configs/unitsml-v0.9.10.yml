@@ -1,0 +1,38 @@
+# UnitsML 0.9.10
+---
+metadata:
+  name: UnitsML 0.9.10
+  version: 0.9.10
+  title: UnitsML 0.9.10 Schema Browser
+  description: Interactive documentation for the UnitsML 0.9.10 XML schema.
+  license: OASIS
+build:
+  xsd_mode: include_all
+  resolution_mode: resolved
+  serialization_format: marshal
+files:
+- "../schemas/unitsml/unitsml-v0.9.10.xsd"
+namespace_mappings:
+- prefix: xs
+  uri: http://www.w3.org/2001/XMLSchema
+- prefix: unitsml-0910
+  uri: urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema-0.9.10
+appearance:
+  logos:
+    long:
+      light:
+        path: "logo-unitsml.svg"
+      dark:
+        path: "logo-unitsml.svg"
+    lutaml_logo:
+      light:
+        url: https://raw.githubusercontent.com/lutaml/branding/main/svg/lutaml-logo_logo-full-light.svg
+      dark:
+        url: https://raw.githubusercontent.com/lutaml/branding/main/svg/lutaml-logo_logo-full-dark.svg
+  colors:
+    primary: "#2d2c69"
+    primary_light: "#57a0fe"
+    primary_dark: "#1a1950"
+    accent: "#30dfc0"
+    background_primary: "#ffffff"
+    background_secondary: "#f8fafc"

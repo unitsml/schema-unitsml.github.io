@@ -3,68 +3,43 @@ name: links
 on:
   push:
     branches:
-    - main
-    - staging
+      - main
   pull_request:
-
 
 jobs:
   link_checker:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup prerequisites
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl make libxml2-dev libxslt-dev libnode-dev node-gyp npm openssl xsltproc
-
-      - name: Setup snaps
-        run: |
-          sudo snap install aws-cli --classic
-
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: '3.3'
           bundler-cache: true
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+          cache-version: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Update submodules
-        run: |
-          make update-init update-modules
+        run: make update-init update-modules
 
-      - name: Use Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-
-      - name: Setup npm
-        run: |
-          npm install
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
+      - name: Install frontend deps
+        run: cd frontend && npm install
 
       - name: Build site
-        run: |
-          make _site
+        run: make all
 
       - name: Link Checker
-        uses: lycheeverse/lychee-action@v1.2.0
+        uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --exclude-file .lycheeignore -- _site/**/*.html
+          args: --verbose --no-progress --exclude-file .lycheeignore -- site/**/*.html
           fail: true
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-        # - name: Create Issue From File
-        #   uses: peter-evans/create-issue-from-file@v2
-        #   with:
-        #     title: Link Checker Report
-        #     content-filepath: ./lychee/out.md
-        #     labels: report, automated issue
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
