@@ -43,9 +43,6 @@ jobs:
       - name: Install frontend deps
         run: cd frontend && npm install
 
-      - name: Build lutaml-xsd frontend
-        run: cd "$(bundle show lutaml-xsd)/frontend" && npm install && npm run build
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
