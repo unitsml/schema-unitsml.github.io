@@ -14,10 +14,7 @@ configs: generate_configs.rb
 build/%.lxr: configs/%.yml
 	mkdir -p build
 	bundle exec lutaml-xsd build from-config $< \
-		--output $@ \
-		--xsd-mode include_all \
-		--resolution-mode resolved \
-		--serialization-format marshal
+		--output $@
 
 # Generate a single SPA HTML from an LXR package
 site/%.html: build/%.lxr
