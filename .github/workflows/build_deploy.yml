@@ -52,36 +52,9 @@ jobs:
 
       - name: Build site
         run: |
-          echo "=== Debug: test v1.0 parse ==="
-          bundle exec ruby -e '
-            require "lutaml/xsd"
-            repo = Lutaml::Xsd::SchemaRepository.from_yaml_file("configs/unitsml-v1.0.yml")
-            puts "Files: #{repo.files}"
-            mappings = repo.schema_location_mappings || []
-            puts "Mappings count: #{mappings.size}"
-            mappings.each { |m| puts "  #{m.from} => #{m.to}" }
-            repo.files.each do |f|
-              puts "File exists? #{f}: #{File.exist?(f)}"
-              puts "File size: #{File.size(f)}" if File.exist?(f)
-            end
-            repo.parse
-            schemas = repo.instance_variable_get(:@parsed_schemas)
-            puts "Parsed schemas count: #{schemas.size}"
-            schemas.each do |path, schema|
-              puts "  #{File.basename(path)}: #{schema.element.size} elements, #{schema.complex_type.size} complex types, #{schema.simple_type.size} simple types"
-            end
-            # Also try direct parse
-            puts "=== Direct parse test ==="
-            begin
-              content = File.read(repo.files.first)
-              puts "Read #{content.size} bytes"
-              parsed = Lutaml::Xml::Schema::Xsd.parse(content, location: File.dirname(repo.files.first), schema_mappings: mappings.map(&:to_glob_format))
-              puts "Direct parse: #{parsed.element.size} elements, #{parsed.complex_type.size} complex types"
-            rescue => e
-              puts "Direct parse error: #{e.class}: #{e.message}"
-              puts e.backtrace.first(5).join("\n")
-            end
-          '
+          echo "=== Debug: list schema files ==="
+          ls -la schemas/unitsml/ || echo "No schemas/unitsml/"
+          find schemas/ -name "unitsml-v1.0*" || echo "v1.0 not found"
           echo "=== Building ==="
           make all
 
