@@ -14,7 +14,7 @@ files:
 - "../schemas/unitsml/unitsml-v1.0.xsd"
 schema_location_mappings:
 - from: "http://www.w3.org/2009/01/xml.xsd"
-  to: "../schemas-external/xml.xsd"
+  to: "../schemas/unitsml/xml.xsd"
 namespace_mappings:
 - prefix: xs
   uri: http://www.w3.org/2001/XMLSchema
