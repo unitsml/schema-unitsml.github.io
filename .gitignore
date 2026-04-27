@@ -1,4 +1,8 @@
-_site
 .DS_Store
-build_source
 Gemfile.lock
+build/
+site/
+node_modules/
+frontend/node_modules/
+schemas_index.json
+unitsml.lxr
