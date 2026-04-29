@@ -56,6 +56,8 @@
 /* Monospace code elements */
 code {
   font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 /* Smooth transitions for all interactive elements */
@@ -69,4 +71,5 @@ body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
